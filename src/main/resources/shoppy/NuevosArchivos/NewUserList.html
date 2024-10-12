@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{shoppy/templates/index.html::head}">
+
+    <meta charset="UTF-8">
+    <title>Listado de Productos</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+</head>
+<header th:replace="~{shoppy/templates/index.html::header}"></header>
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">
+<div style="width: 80%; max-width: 600px;">
+    <h1 style="text-align: center;">Listado de Usuarios</h1>
+    <form action="/" method="get">
+        <table style="width: 100%; border-collapse: collapse; box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);">
+            <tr>
+                <th>Nombre de Usuario</th>
+
+            </tr>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.username}"></td>
+
+            </tr>
+        </table>
+        <button type="submit" style="display: block; margin: 20px auto; padding: 10px 20px; font-size: 16px; color: white; background-color: #4CAF50; border: none; border-radius: 5px; cursor: pointer;">Regresar a Home</button>
+    </form>
+</div>
+
+</body>
+</html>

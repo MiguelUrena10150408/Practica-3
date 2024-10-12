@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{shoppy/templates/index.html::head}">
+    <title>Thymeleaf Example</title>
+</head>
+<header th:replace="~{shoppy/templates/index.html::header}"></header>
+<body>
+
+<p1 th:text="'Hello, ' + ${name} + '!'">Hello, World!</p1>
+<div>
+    <button id="add-button">Agregar</button>
+    <table>
+        <caption>Listado de Productos</caption>
+        <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Precio (RD$)</th>
+            <th>Cantidad</th>
+            <th>Acción</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>RAM 8GB</td>
+            <td>1,500</td>
+            <td><input type="number" value="2"></td>
+            <td>
+                <button>Editar</button>
+                <button>Eliminar</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

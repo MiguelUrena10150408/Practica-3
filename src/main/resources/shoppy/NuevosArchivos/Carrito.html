@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+</head>
+<body>
+<h1>Your Cart</h1>
+<form>
+    <table style="margin: 0 auto;">
+        <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+        <tr th:each="product : ${cart}">
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.stock}"></td>
+            <td th:text="${product.price * product.stock}"></td>
+            <td>
+                <form action="/removeCarrito" method="post" style="display:inline;">
+                    <input type="hidden" th:name="productName" th:value="${product.name}">
+                    <button type="submit" class="btn btn-secondary">Eliminar</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+</form>
+<a href="/" style="display: block; margin: 20px auto; text-align: center;">Generar Factura</a>
+</body>
+</html>
